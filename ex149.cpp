@@ -10,7 +10,7 @@ void sizeArray(int &size) {
     do {
         cout << "Insert size of the array: ";
         cin >> size;
-    }while((size<=0)||(size>20));
+    }while((size<1)||(size>20));
 }
 
 void enterElements(int size, int array[]) {
@@ -20,7 +20,7 @@ void enterElements(int size, int array[]) {
     }
 }
 
-void sortElements(int size, int p, int n, int array[], int positive[], int negative[]) {
+void sortElements(int size, int &p, int &n, int array[], int positive[], int negative[]) {
     for(int i=0;i<size;i++) {
         if(array[i]>=0) {
             positive[p]=array[i];
@@ -33,15 +33,29 @@ void sortElements(int size, int p, int n, int array[], int positive[], int negat
     }
 }
 
-void sumElements(int size, int positive[], int negative[]) {
-    for(int i=0;i<)
+void sumElements(int p, int n, int positive[], int negative[]) {
+    int psum = 0, nsum = 0;
+    for(int i=0;i<p;i++) {
+        psum+=positive[i];
+    }
+    for(i=0;i<n;i++) {
+        nsum+=negative[i];
+    }
+    
+}
+
+void showArray(int len, int array[]) {
+    for(int i=0;i<len;i++)
+        cout << array[i] << "\n";
 }
 
 int main() {
-    int arr1[20], pos[20], neg[20], len, cp=0, cn=0; //arr1 is the array that will contain all our values
+    int arr1[20], pos[20], neg[20], len, plen = 0, nlen = 0; //arr1 is the array that will contain all our values
     sizeArray(len);
     enterElements(len, arr1);
-    sortElements(len, arr1, pos, neg);
-    sumElements(len, pos, neg);
+    sortElements(len, plen, nlen, arr1, pos, neg);
+    showArray(len, arr1);
+    sumElements(plen, nlen, pos, neg);
+    
     return 0;
 }
