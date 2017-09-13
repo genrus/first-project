@@ -10,10 +10,8 @@ using namespace std;
 
 int main() {
     int i, sum=0; //the integer "i" will reach the value 1000, then the loop will finish and we'll know the sum of the multi9ples.
-    for(i=1;i<=1000;i++) {
-        if((i<3)&&(i<5))
-            continue;
-        else if(((i%3)==0)||((i%5)==0))) {
+    for(i=1;i<1000;i++) {
+        if(((i%3)==0)||((i%5)==0))) {
             sum += i;   
         }
     }
